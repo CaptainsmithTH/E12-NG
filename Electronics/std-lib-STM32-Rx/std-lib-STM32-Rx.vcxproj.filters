@@ -209,5 +209,8 @@
     <ClInclude Include="source\SETUP.h">
       <Filter>Source files\Source</Filter>
     </ClInclude>
+    <ClInclude Include="source\STM32_Rx.h">
+      <Filter>Source files\Source</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

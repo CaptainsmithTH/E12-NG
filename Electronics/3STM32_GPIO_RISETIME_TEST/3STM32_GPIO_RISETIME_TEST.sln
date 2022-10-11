@@ -1,0 +1,27 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3STM32_GPIO_RISETIME_TEST", "3STM32_GPIO_RISETIME_TEST.vcxproj", "{C4AF8F32-F5DE-4665-8AC5-51644A3A8495}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4AF8F32-F5DE-4665-8AC5-51644A3A8495}.Debug|x64.ActiveCfg = Debug|Win32
+		{C4AF8F32-F5DE-4665-8AC5-51644A3A8495}.Debug|x86.ActiveCfg = Debug|Win32
+		{C4AF8F32-F5DE-4665-8AC5-51644A3A8495}.Debug|x86.Build.0 = Debug|Win32
+		{C4AF8F32-F5DE-4665-8AC5-51644A3A8495}.Release|x64.ActiveCfg = Release|Win32
+		{C4AF8F32-F5DE-4665-8AC5-51644A3A8495}.Release|x86.ActiveCfg = Release|Win32
+		{C4AF8F32-F5DE-4665-8AC5-51644A3A8495}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40229583-92B0-448F-A732-F97D6F05EAC7}
+	EndGlobalSection
+EndGlobal
