@@ -22,7 +22,7 @@ int main(void)
 	pinMode(GPIOB, 14, INPUT, FLOATING);
 	pinMode(GPIOB, 15, OUTPUT50, ALTPUSHPULL);
 	
-	SPI2->CR1 |= SPI_CR1_MSTR | SPI_CR1_BR_1 | SPI_CR1_BR_0;
+	SPI2->CR1 |= SPI_CR1_MSTR | SPI_CR1_BR_0;
 	SPI2->CR2 |= SPI_CR2_TXDMAEN | SPI_CR2_RXDMAEN | SPI_CR2_SSOE;
 	
 	DMA1_Channel5->CNDTR = 32;
@@ -44,7 +44,10 @@ int main(void)
 	{
 		pinToggle(GPIOC, 13);
 		GPIOB->ODR &= ~(1 << 12);
+		DMA1_Channel5->CNDTR = 32;
 		DMA1_Channel5->CCR |= DMA_CCR_EN;
+		DMA1_Channel4->CNDTR = 32;
+		DMA1_Channel4->CCR |= DMA_CCR_EN;
 		for (uint32_t i = 0; i < 500000; i++) ;
 	}
 	
@@ -69,6 +72,5 @@ void DMA1_Channel4_IRQHandler()
 	{
 		DMA1->IFCR |= DMA_IFCR_CTCIF4;
 		DMA1_Channel4->CCR &= ~DMA_CCR_EN;
-		DMA1_Channel4->CCR |= DMA_CCR_EN;
 	}
 }

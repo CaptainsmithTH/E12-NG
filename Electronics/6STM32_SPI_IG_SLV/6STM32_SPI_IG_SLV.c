@@ -7,7 +7,7 @@ int main(void)
 	for (uint8_t i = 0; i < 32; i++)
 	{
 		prev_packet[i] = 0x00;
-		new_packet[i] =  0x00;
+		new_packet[i] =  0xEE + i;
 	}
 	general_Setup();
 	RCC->APB1ENR |= RCC_APB1ENR_SPI2EN;
@@ -66,10 +66,6 @@ void DMA1_Channel5_IRQHandler()
 void EXTI15_10_IRQHandler()
 {
 	DMA1_Channel4->CCR |= DMA_CCR_EN;
-	for (uint8_t i = 0; i < 32; i++)
-	{
-		new_packet[i] = prev_packet[i] + 0x0F;
-	}
 	
 	resetInterrupt(GPIOB, 12);
 }

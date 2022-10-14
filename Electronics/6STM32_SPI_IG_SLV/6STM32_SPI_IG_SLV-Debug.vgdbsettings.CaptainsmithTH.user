@@ -21,7 +21,7 @@
           <Enabled>false</Enabled>
         </Breakpoint>
         <Plot>false</Plot>
-        <IsCollapsed>true</IsCollapsed>
+        <IsCollapsed>false</IsCollapsed>
         <IsFavorite>false</IsFavorite>
       </LiveVariable>
       <LiveVariable>
@@ -33,7 +33,7 @@
           <Enabled>false</Enabled>
         </Breakpoint>
         <Plot>false</Plot>
-        <IsCollapsed>true</IsCollapsed>
+        <IsCollapsed>false</IsCollapsed>
         <IsFavorite>false</IsFavorite>
       </LiveVariable>
     </LiveVariables>
