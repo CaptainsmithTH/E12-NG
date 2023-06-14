@@ -1,0 +1,27 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "E12S001_STM32H7B0_FirstTest", "E12S001_STM32H7B0_FirstTest.vcxproj", "{876AB35A-A3D3-47AC-9E21-ED9AA2087DFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{876AB35A-A3D3-47AC-9E21-ED9AA2087DFA}.Debug|x64.ActiveCfg = Debug|Win32
+		{876AB35A-A3D3-47AC-9E21-ED9AA2087DFA}.Debug|x86.ActiveCfg = Debug|Win32
+		{876AB35A-A3D3-47AC-9E21-ED9AA2087DFA}.Debug|x86.Build.0 = Debug|Win32
+		{876AB35A-A3D3-47AC-9E21-ED9AA2087DFA}.Release|x64.ActiveCfg = Release|Win32
+		{876AB35A-A3D3-47AC-9E21-ED9AA2087DFA}.Release|x86.ActiveCfg = Release|Win32
+		{876AB35A-A3D3-47AC-9E21-ED9AA2087DFA}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69CE406B-4817-4AEB-8D45-85C97AD15564}
+	EndGlobalSection
+EndGlobal
