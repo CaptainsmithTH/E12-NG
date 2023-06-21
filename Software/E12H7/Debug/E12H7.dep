@@ -38,4 +38,4 @@ Debug/E12H7.o: E12H7.cpp E12H7.h GPIO.h COMMON.h \
  C:/Users/CaptainsmithTH/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.stm32/2021.02/STM32H7xxxx/CMSIS_HAL/Core/Include/cmsis_gcc.h \
  C:/Users/CaptainsmithTH/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.stm32/2021.02/STM32H7xxxx/CMSIS_HAL/Core/Include/mpu_armv7.h \
  C:/Users/CaptainsmithTH/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.stm32/2021.02/STM32H7xxxx/CMSIS_HAL/Device/ST/STM32H7xx/Include/system_stm32h7xx.h \
- CLOCK.h
+ CLOCK.h PWR.h FLASH.h

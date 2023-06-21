@@ -273,6 +273,12 @@
     <ClCompile Include="CLOCK.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="PWR.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="FLASH.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GPIO.h">
@@ -285,6 +291,12 @@
       <Filter>Source files</Filter>
     </ClInclude>
     <ClInclude Include="CLOCK.h">
+      <Filter>Source files</Filter>
+    </ClInclude>
+    <ClInclude Include="PWR.h">
+      <Filter>Source files</Filter>
+    </ClInclude>
+    <ClInclude Include="FLASH.h">
       <Filter>Source files</Filter>
     </ClInclude>
   </ItemGroup>

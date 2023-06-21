@@ -1,0 +1,10 @@
+06:46:43 **** Incremental Build of configuration Debug for project E12CUBE_001_CLOCKTEST ****
+make -j12 all 
+arm-none-eabi-size   E12CUBE_001_CLOCKTEST.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7464	     24	   1568	   9056	   2360	E12CUBE_001_CLOCKTEST.elf
+Finished building: default.size.stdout
+ 
+
+06:46:44 Build Finished. 0 errors, 0 warnings. (took 311ms)
+

@@ -1,37 +1,91 @@
 #include "E12H7.h"
 
 uint8_t	a = 0;
+uint32_t k = 0;
+uint32_t tempReg = 0;
 int main(void)
 {
-	//Warning: if the line below triggers an error, GPIOE is not connected to a AHB1 (Group 1) on this device.
-	//In this case, please search the stm32xxxx_ll_bus.h file for 'PERIPH_GPIOE' to find out the correct
-	//macro name and use it to replace LL_AHB1_GRP1_PERIPH_$$com.sysprogs.examples.lBedblink.LEDPORT$$ and LL_AHB1_GRP1_EnableClock() below. 
-	RCC->CR |= RCC_CR_HSEON;
-	while (!(RCC->CR & RCC_CR_HSERDY)) ;
+	RCC_AXI_Enable();
+	PWR_setSelectLDO();
+	PWR_setVOSScale(VOS_SCALE0);
+	PWR_setSVOS();
+	RCC_HSE_Enable();
+	RCC_HSE_CSS_Enable();
 	
-	FLASH->ACR &= ~(0xF);
-	FLASH->ACR |= 5;
+	
+	FLASH->ACR |= FLASH_ACR_LATENCY_7WS;		   
+	RCC->CR &= ~(RCC_CR_PLL1ON | RCC_CR_PLL2ON | RCC_CR_PLL3ON);
+	
+	RCC->PLLCKSELR &= ~(RCC_PLLCKSELR_PLLSRC_Msk);
+	
+	
+	RCC->PLLCFGR &= ~(0x1FF << 16 | RCC_PLLCFGR_PLL1FRACEN | RCC_PLLCFGR_PLL2FRACEN | RCC_PLLCFGR_PLL3FRACEN);
+	
+	RCC->PLLCKSELR |= RCC_PLLCKSELR_PLLSRC_HSE;
+	RCC->PLLCKSELR |= 5 << RCC_PLLCKSELR_DIVM1_Pos;	
+	RCC->PLLCKSELR &= ~(RCC_PLLCKSELR_DIVM1_5);
+	RCC->PLL1DIVR &= ~(RCC_PLL1DIVR_N1_Msk);
+	RCC->PLL1DIVR |= 111 << RCC_PLL1DIVR_N1_Pos | 1 << RCC_PLL1DIVR_P1_Pos; //DIVN1 = 112, DIVP1 = 2
+	RCC->PLL1DIVR |= 3 << RCC_PLL1DIVR_Q1_Pos | 3 << RCC_PLL1DIVR_R1_Pos;
+	RCC->PLLCFGR &= ~(RCC_PLLCFGR_PLL1RGE_Msk);
+	RCC->PLLCFGR |= RCC_PLLCFGR_PLL1RGE_2; //PLL1 RANGE TO BE 4-8MHZ (IN THIS CASE 5 MHZ)
+	RCC->PLLCFGR &= ~(RCC_PLLCFGR_PLL1VCOSEL | RCC_PLLCFGR_PLL2VCOSEL | RCC_PLLCFGR_PLL3VCOSEL);
+	RCC->PLL1FRACR = 0;
+	RCC->PLL2FRACR = 0;
+	RCC->PLL3FRACR = 0;
+	
+	
+	RCC->PLLCFGR |= RCC_PLLCFGR_DIVP1EN;
+	RCC->PLLCFGR |= RCC_PLLCFGR_DIVQ1EN;
+	RCC->PLLCFGR |= RCC_PLLCFGR_DIVR1EN;
+	RCC->PLLCFGR |= RCC_PLLCFGR_PLL1FRACEN;
+	tempReg = RCC->PLLCFGR;
+	
+	
+	RCC->CR |= RCC_CR_PLL1ON;
+	//a = 1;			  
+	while (!(RCC->CR & RCC_CR_PLL1RDY)) ;	
+	a = 2;
+	
+	
 	
 	RCC->CDCFGR1 &= ~(RCC_CDCFGR1_CDCPRE_Msk | RCC_CDCFGR1_CDPPRE_Msk | RCC_CDCFGR1_HPRE_Msk);
-	RCC->CDCFGR1 |= 0b100 << RCC_CDCFGR1_CDPPRE_Pos;			//CDCPRE = 1, CDPPRE = 2,HPRE = 1
+	RCC->CDCFGR1 |= RCC_CDCFGR1_CDCPRE_DIV1 | RCC_CDCFGR1_HPRE_DIV1 | RCC_CDCFGR1_CDPPRE_DIV2; //CDCPRE = 1, CDPPRE = 2,HPRE = 1
 	RCC->CDCFGR2 &= ~(RCC_CDCFGR2_CDPPRE1_Msk | RCC_CDCFGR2_CDPPRE2_Msk);
-	RCC->CDCFGR2 |= 0b100 << RCC_CDCFGR2_CDPPRE1_Pos | 0b100 << RCC_CDCFGR2_CDPPRE2_Pos; //CDCPRE1 = 2, CDCPRE2 = 2
+	RCC->CDCFGR2 |= RCC_CDCFGR2_CDPPRE1_DIV2 | RCC_CDCFGR2_CDPPRE2_DIV2; //CDCPRE1 = 2, CDCPRE2 = 2
 	RCC->SRDCFGR &= ~(RCC_SRDCFGR_SRDPPRE_Msk);
-	RCC->SRDCFGR |= 0b100 << RCC_SRDCFGR_SRDPPRE_Pos;
-	RCC->PLLCKSELR &= ~(RCC_PLLCKSELR_DIVM1_Msk);
-	RCC->PLLCKSELR |= 5 << RCC_PLLCKSELR_DIVM1_Pos;
-	RCC->PLL1DIVR &= ~(RCC_PLL1DIVR_N1_Msk);
-	RCC->PLL1DIVR |= 112 << RCC_PLL1DIVR_N1_Pos;
+	RCC->SRDCFGR |= RCC_SRDCFGR_SRDPPRE_DIV2;
 	
+	RCC->CFGR &= ~(RCC_CFGR_SW_Msk);		
+	//RCC->CFGR |= 1<<1;
+	RCC->CFGR |= 0b11;	  	
+						 
+	while ((RCC->CFGR & RCC_CFGR_SWS_Msk) != RCC_CFGR_SWS_PLL1) ;	
+	a = 4;						/*
+	while (!(RCC->CR & RCC_CR_CDCKRDY));
+	a = 5;
+	while (!(RCC->CR & RCC_CR_CPUCKRDY));	*/
+	a = 6;
+	
+	for (uint32_t i = 0; i < 100000; i++) ;	
+	SystemCoreClockUpdate();
+	k = SystemCoreClock;		
+	for (uint32_t i = 0; i < 100000; i++) ;	
 	RCC->AHB4ENR |= RCC_AHB4ENR_GPIOEEN;
 	RCC->AHB4ENR |= RCC_AHB4ENR_GPIOBEN;
-	pinMode(GPIOE, 3, OUTPUT);
+	
+	pinMode(GPIOE, 3, OUTPUT); 
 	pinMode(GPIOB, 9, INPUT);
-	pinPull(GPIOB, 9, PULLUP);
+	pinPull(GPIOB, 9, PULLUP);		
+	
+	
 
+	
 	for (;;)
-	{
+	{			
 		for (uint32_t i = 0; i < 1000000; i++) ;
-		pinToggle(GPIOE, 3);
-	}
+		a++;
+		pinToggle(GPIOE, 3);  	   
+		
+	}					
 }

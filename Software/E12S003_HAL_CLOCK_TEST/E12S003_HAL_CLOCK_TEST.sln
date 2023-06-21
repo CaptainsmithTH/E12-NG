@@ -1,0 +1,27 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "E12S003_HAL_CLOCK_TEST", "E12S003_HAL_CLOCK_TEST.vcxproj", "{8B14E1A4-51B1-44B0-8712-636ADC48AE36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B14E1A4-51B1-44B0-8712-636ADC48AE36}.Debug|x64.ActiveCfg = Debug|Win32
+		{8B14E1A4-51B1-44B0-8712-636ADC48AE36}.Debug|x86.ActiveCfg = Debug|Win32
+		{8B14E1A4-51B1-44B0-8712-636ADC48AE36}.Debug|x86.Build.0 = Debug|Win32
+		{8B14E1A4-51B1-44B0-8712-636ADC48AE36}.Release|x64.ActiveCfg = Release|Win32
+		{8B14E1A4-51B1-44B0-8712-636ADC48AE36}.Release|x86.ActiveCfg = Release|Win32
+		{8B14E1A4-51B1-44B0-8712-636ADC48AE36}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9B6D833-2170-4AE9-9CE5-96C5A19A63FF}
+	EndGlobalSection
+EndGlobal

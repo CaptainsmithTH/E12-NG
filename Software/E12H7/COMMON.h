@@ -6,5 +6,9 @@
 
 #define HIGH 1
 #define LOW 0
+#define timeOut				4000
+
+#define E12_ERROR			0x01
+#define E12_TIMEOUT			0x02
 
 #endif

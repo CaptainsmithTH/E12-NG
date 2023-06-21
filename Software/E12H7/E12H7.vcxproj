@@ -81,7 +81,9 @@
   <ItemGroup>
     <ClCompile Include="CLOCK.cpp" />
     <ClCompile Include="E12H7.cpp" />
+    <ClCompile Include="FLASH.cpp" />
     <ClCompile Include="GPIO.cpp" />
+    <ClCompile Include="PWR.cpp" />
     <ClCompile Include="system_stm32h7xx.c" />
     <None Include="stm32.mak" />
     <ClCompile Include="$(BSP_ROOT)\STM32H7xxxx\StartupFiles\startup_stm32h7b0xx.c" />
@@ -118,7 +120,9 @@
     <ClInclude Include="CLOCK.h" />
     <ClInclude Include="COMMON.h" />
     <ClInclude Include="E12H7.h" />
+    <ClInclude Include="FLASH.h" />
     <ClInclude Include="GPIO.h" />
+    <ClInclude Include="PWR.h" />
     <ClInclude Include="stm32h7xx_hal_conf.h" />
     <ClInclude Include="$(BSP_ROOT)\STM32H7xxxx\STM32H7xx_HAL_Driver\Inc\stm32h7xx_ll_adc.h" />
     <ClInclude Include="$(BSP_ROOT)\STM32H7xxxx\STM32H7xx_HAL_Driver\Inc\stm32h7xx_ll_bdma.h" />

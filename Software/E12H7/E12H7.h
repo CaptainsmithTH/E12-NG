@@ -3,5 +3,7 @@
    
 #include "GPIO.h"
 #include "CLOCK.h"
+#include "PWR.h"
+#include "FLASH.h"
 
 #endif

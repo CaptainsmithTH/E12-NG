@@ -1,13 +1,27 @@
 #include "CLOCK.h"
 
-uint8_t HSE_Enable()
+uint8_t RCC_HSE_Enable()
 {
 	RCC->CR |= RCC_CR_HSEON; //ENABLE HSE
-	for (uint8_t i = 0; i < 240; i++) ; //Wait
-	if (!(RCC->CR & RCC_CR_HSERDY_Msk))
+	uint32_t timeOutCounter = 0; 
+	while (!(RCC->CR & RCC_CR_HSERDY_Msk))
 	{
-		return 1;
+		timeOutCounter++;
+		if (timeOutCounter > timeOut)
+		{
+			return E12_TIMEOUT;
+		}
 	}
 	
 	return 0;
+}
+
+void RCC_HSE_CSS_Enable()
+{
+	RCC->CR |= RCC_CR_CSSHSEON;
+}
+
+void RCC_AXI_Enable()
+{
+	RCC->CKGAENR = 0xFFFFFFFF;
 }
